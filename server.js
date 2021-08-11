@@ -3,7 +3,7 @@ module.exports = () => {
     products: [],
   };
 
-  for (let index = 0; index < 1000; index++) {
+  for (let index = 0; index < 10000; index++) {
     data.products.push({
       id: index + 1,
       price: 80,
