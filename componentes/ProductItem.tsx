@@ -2,12 +2,14 @@ import { memo } from 'react';
 
 interface ProductItemProps {
   product: { id: number; price: number; title: string };
+  addToWishList: (id: number) => void;
 }
 
-const ProductItemComponent = ({ product }: ProductItemProps) => {
+const ProductItemComponent = ({ product, addToWishList }: ProductItemProps) => {
   return (
     <div>
       {product.title} - <strong>{product.price}</strong>
+      <button onClick={() => addToWishList(product.id)}>Add to wish List</button>
     </div>
   );
 };

@@ -20,6 +20,11 @@ export default function Home() {
     setResults(data);
   }
 
+  const addToWishList = (id: number) => {
+    console.log(id);
+  };
+
+  
   return (
     <div>
       <Head>
@@ -36,7 +41,7 @@ export default function Home() {
           <button type='submit'>Buscar</button>
         </form>
 
-        <SearchResults results={results} />
+        <SearchResults results={results} addToWishList={addToWishList} />
       </div>
     </div>
   );
