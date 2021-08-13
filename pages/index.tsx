@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 import { SearchResults } from '../componentes/SearchResults';
 
 export default function Home() {
@@ -20,11 +20,10 @@ export default function Home() {
     setResults(data);
   }
 
-  const addToWishList = (id: number) => {
+  const addToWishList = useCallback(async (id: number) => {
     console.log(id);
-  };
+  }, []);
 
-  
   return (
     <div>
       <Head>
