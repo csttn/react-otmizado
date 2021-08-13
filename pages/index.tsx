@@ -4,7 +4,10 @@ import { SearchResults } from '../componentes/SearchResults';
 
 export default function Home() {
   const [seacrh, setSearch] = useState('');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<any>({
+    data: [],
+    totalPrice: 0,
+  });
 
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
@@ -17,7 +20,9 @@ export default function Home() {
 
     const data = await response.json();
 
-    setResults(data);
+    const totalPrice = data.reduce((acc: number, product: any) => acc + product.price, 0);
+
+    setResults({ data, totalPrice });
   }
 
   const addToWishList = useCallback(async (id: number) => {
