@@ -7,8 +7,9 @@ import { AddProductToWishListProps } from './AddProductToWishList';
 
 // Lazy load com next
 const AddProductToWishList = dynamic<AddProductToWishListProps>(
-  () => {
-    return import('./AddProductToWishList').then((m) => m.AddProductToWishList);
+  async () => {
+    const m = await import('./AddProductToWishList');
+    return m.AddProductToWishList;
   },
   {
     // eslint-disable-next-line react/display-name
